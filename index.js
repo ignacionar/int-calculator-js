@@ -109,7 +109,7 @@ function operar () {
             resultado.innerText = textResultado;
         }
         else if (operador === "/") {
-            textResultado = `${a / b}`;
+            textResultado = `${(a / b).toFixed(2)}`;
             resultado.innerText = textResultado;
         }
         else {

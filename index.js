@@ -2,7 +2,7 @@ const resultado = document.querySelector("#result");
 const operacion = document.querySelector("#operation_");
 const botones = document.querySelector("#botones");
 
-resultado.innerText = ""
+resultado.innerText = "";
 
 let numeroA1;
 let numeroB2;
@@ -14,40 +14,40 @@ let elArray = [];
 let primerElemento = [];
 let segundoElemento = [];
 
-let elementoA
-let elementoB
+let elementoA;
+let elementoB;
 
 
 const losBotones = (evento) => {   
     if (evento.target.className === "--number") {
         if (segundoN == false) {
             numeroA1 = evento.target.innerText;
-            operacion.innerText += parseFloat(numeroA1)
+            operacion.innerText += parseInt(numeroA1);
             elArray.push(numeroA1);
             primerElemento.push(operacion.innerText);
             elementoA = primerElemento.pop();
     
         } else {
             numeroB2 = evento.target.innerText;
-            operacion.innerText += parseFloat(numeroB2);
+            operacion.innerText += parseInt(numeroB2);
             if (operador === "+") {
                 segundoElemento = operacion.innerText.split("+");
-                elementoB = segundoElemento.pop()
+                elementoB = segundoElemento.pop();
                 elArray.push(numeroB2);
             }
             else if (operador === "-") {
                 segundoElemento = operacion.innerText.split("-");
-                elementoB = segundoElemento.pop()
+                elementoB = segundoElemento.pop();
                 elArray.push(numeroB2);
             }
             else if (operador === "/") {
                 segundoElemento = operacion.innerText.split("/");
-                elementoB = segundoElemento.pop()
+                elementoB = segundoElemento.pop();
                 elArray.push(numeroB2);
             }
             else if (operador === "x") {
                 segundoElemento = operacion.innerText.split("x");
-                elementoB = segundoElemento.pop()
+                elementoB = segundoElemento.pop();
                 elArray.push(numeroB2);
             }
         }
@@ -57,9 +57,9 @@ const losBotones = (evento) => {
             if (elArray.includes(numeroA1)) {
                 operador = evento.target.innerText;
                 operacion.innerText += operador;
-                elArray.push(operador)
-                condicion = false
-                segundoN = true
+                elArray.push(operador);
+                condicion = false;
+                segundoN = true;
             }
         }
         else {
@@ -68,12 +68,12 @@ const losBotones = (evento) => {
             }
         }
     
-    } else if (evento.target.className === "--igual") { ///  ???? NO FUNCIONA
+    } else if (evento.target.className === "--igual") { 
         operacion.innerText = "";
-        resetear1()
+        resetear1();
     }
     
-    operar()
+    operar();
     
 }  
 
@@ -93,33 +93,32 @@ function resetear1() {
     elementoB = "";
 }
 
-
-let textResultado
+let textResultado;
 
 function operar () {
-    a = parseFloat(elementoA)
-    b = parseFloat(elementoB)
+    a = parseInt(elementoA);
+    b = parseInt(elementoB);
     
     if (condicion == false) {
         if (operador === "+") {
-            textResultado = `${a + b}`
-            resultado.innerText = textResultado
+            textResultado = `${a + b}`;
+            resultado.innerText = textResultado;
         }
         else if (operador === "-") {
-            textResultado = `${a - b}`
-            resultado.innerText = textResultado
+            textResultado = `${a - b}`;
+            resultado.innerText = textResultado;
         }
         else if (operador === "/") {
-            textResultado = `${a / b}`
-            resultado.innerText = textResultado
+            textResultado = `${a / b}`;
+            resultado.innerText = textResultado;
         }
         else {
-            textResultado = `${a * b}`
-            resultado.innerText = textResultado
+            textResultado = `${a * b}`;
+            resultado.innerText = textResultado;
         }
 
         if (resultado.innerText === "NaN") {
-            resultado.innerText = a
+            resultado.innerText = a;
         }
 
     }
@@ -127,7 +126,4 @@ function operar () {
 
 }
 
-
-
-
-botones.addEventListener('click', losBotones)
+botones.addEventListener('click', losBotones);
